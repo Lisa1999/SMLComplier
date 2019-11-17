@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{CCF4B229-3E60-4638-8490-8D723CDD2A55}</ProjectGuid>
+    <RootNamespace>MySMLInterpreter</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>E:\ProgrammingAPP\LLVM\llvm-project\build\include;E:\ProgrammingAPP\LLVM\llvm-project\llvm\include;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="ASTGen.h" />
+    <ClInclude Include="BoolValAST.h" />
+    <ClInclude Include="CharAST.h" />
+    <ClInclude Include="ExprAST.h" />
+    <ClInclude Include="FnCallAST.h" />
+    <ClInclude Include="FnFormParamListAST.h" />
+    <ClInclude Include="FnRealParamListAST.h" />
+    <ClInclude Include="GeneralFile.h" />
+    <ClInclude Include="IdentifierAST.h" />
+    <ClInclude Include="IntAST.h" />
+    <ClInclude Include="MyException.h" />
+    <ClInclude Include="MyLexicalAnalysis.h" />
+    <ClInclude Include="MyParser.h" />
+    <ClInclude Include="NumberAST.h" />
+    <ClInclude Include="OperatorAST.h" />
+    <ClInclude Include="RealAST.h" />
+    <ClInclude Include="StringAST.h" />
+    <ClInclude Include="Test.h" />
+    <ClInclude Include="Token.h" />
+    <ClInclude Include="TupleAST.h" />
+    <ClInclude Include="TypeAST.h" />
+    <ClInclude Include="ConstantAST.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ASTGen.cpp" />
+    <ClCompile Include="BoolValAST.cpp" />
+    <ClCompile Include="CharAST.cpp" />
+    <ClCompile Include="ExprAST.cpp" />
+    <ClCompile Include="FnCallAST.cpp" />
+    <ClCompile Include="FnFormParamListAST.cpp" />
+    <ClCompile Include="FnRealParamListAST.cpp" />
+    <ClCompile Include="GeneralFile.cpp" />
+    <ClCompile Include="IdentifierAST.cpp" />
+    <ClCompile Include="IntAST.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyLexicalAnalysis.cpp" />
+    <ClCompile Include="MyParser.cpp" />
+    <ClCompile Include="NumberAST.cpp" />
+    <ClCompile Include="OperatorAST.cpp" />
+    <ClCompile Include="RealAST.cpp" />
+    <ClCompile Include="StringAST.cpp" />
+    <ClCompile Include="Test.cpp" />
+    <ClCompile Include="TupleAST.cpp" />
+    <ClCompile Include="TypeAST.cpp" />
+    <ClCompile Include="ConstantAST.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="test1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\build\lib\Analysis\LLVMAnalysis.vcxproj">
+      <Project>{3b2bfc3b-0b74-34d8-b6fb-7c41a4d72459}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\AsmParser\LLVMAsmParser.vcxproj">
+      <Project>{2b4aa3c6-6fff-3317-a7ab-b802aa868576}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\BinaryFormat\LLVMBinaryFormat.vcxproj">
+      <Project>{b1de0cae-3924-30e8-a05d-402318961a04}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Bitcode\Reader\LLVMBitReader.vcxproj">
+      <Project>{d4324fb0-e312-375f-b360-51acc4193b02}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Bitcode\Writer\LLVMBitWriter.vcxproj">
+      <Project>{e9e3b898-fab9-3b60-8789-939f63637c9c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Bitstream\Reader\LLVMBitstreamReader.vcxproj">
+      <Project>{969e7240-f732-3388-9f86-3b0efa21dc0b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\CodeGen\AsmPrinter\LLVMAsmPrinter.vcxproj">
+      <Project>{647a777f-80ef-3375-a061-81132c08ab29}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\CodeGen\GlobalISel\LLVMGlobalISel.vcxproj">
+      <Project>{643647cd-7d28-3049-94b1-fe48015abbb5}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\CodeGen\SelectionDAG\LLVMSelectionDAG.vcxproj">
+      <Project>{e59a29de-c174-3d3c-8838-1ec4b17a6161}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\DebugInfo\CodeView\LLVMDebugInfoCodeView.vcxproj">
+      <Project>{56cc12ce-8a91-3384-824a-e29a0cf73155}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\DebugInfo\DWARF\LLVMDebugInfoDWARF.vcxproj">
+      <Project>{a5071b00-c623-3be7-9027-d898361155dc}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\DebugInfo\GSYM\LLVMDebugInfoGSYM.vcxproj">
+      <Project>{bffb7cea-a08d-3aea-8528-2fb27911f248}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\DebugInfo\MSF\LLVMDebugInfoMSF.vcxproj">
+      <Project>{d4779ce9-8d98-3e7a-b28b-f5e52e4d7458}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Demangle\LLVMDemangle.vcxproj">
+      <Project>{24ab8bd6-7a39-3d2f-884f-9cb574a51dda}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\ExecutionEngine\JITLink\LLVMJITLink.vcxproj">
+      <Project>{e1832770-a65d-35e2-ba5c-02818a630044}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\ExecutionEngine\LLVMExecutionEngine.vcxproj">
+      <Project>{b305ed93-4bbc-37d8-a0d4-6e95fb93bb00}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\ExecutionEngine\Orc\LLVMOrcJIT.vcxproj">
+      <Project>{f03fc6c2-766c-3d2e-a935-d7ef2aea659b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\ExecutionEngine\RuntimeDyld\LLVMRuntimeDyld.vcxproj">
+      <Project>{62a5f19f-c8d9-3f9b-85b2-a6b1f7f2bcdb}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\IRReader\LLVMIRReader.vcxproj">
+      <Project>{9a6888bf-02c0-3dd9-819b-f337824021a0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\IR\LLVMCore.vcxproj">
+      <Project>{a7238e6b-57a4-3d29-be3c-129abdc7a82c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Linker\LLVMLinker.vcxproj">
+      <Project>{54c93d75-fd0c-3096-bc87-b3150bb9f988}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\MC\LLVMMC.vcxproj">
+      <Project>{d057d0a3-0d80-32ba-9ad2-45486744d304}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\MC\MCDisassembler\LLVMMCDisassembler.vcxproj">
+      <Project>{2cf8c4ca-3ca5-39e9-b37e-bf816b2bc171}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\MC\MCParser\LLVMMCParser.vcxproj">
+      <Project>{9808cf7c-749f-32b3-bb92-7e03d369b819}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Object\LLVMObject.vcxproj">
+      <Project>{7d17f255-b0e2-377e-854f-2e87af9c63a6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Passes\LLVMPasses.vcxproj">
+      <Project>{ae3bce7e-f59e-38f6-b258-ca5287d784de}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\ProfileData\LLVMProfileData.vcxproj">
+      <Project>{aea5ee14-2f71-344d-ba45-6ea19b5daabc}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Remarks\LLVMRemarks.vcxproj">
+      <Project>{cf8b6b23-5391-3c3b-93aa-1371d056a2ff}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Support\LLVMSupport.vcxproj">
+      <Project>{30c3dab6-373d-378b-a078-1d517ddf9deb}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Target\BPF\LLVMBPFCodeGen.vcxproj">
+      <Project>{14ff5bab-d243-3c06-a517-3401bcafc586}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Target\LLVMTarget.vcxproj">
+      <Project>{bbffaf44-624f-3759-84e6-daebd018f08e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Target\X86\AsmParser\LLVMX86AsmParser.vcxproj">
+      <Project>{cbe579a4-a880-360c-8209-9896adfe82e7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Target\X86\Disassembler\LLVMX86Disassembler.vcxproj">
+      <Project>{5e1f7832-83b7-3982-9323-47662bd22824}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Target\X86\LLVMX86CodeGen.vcxproj">
+      <Project>{cebffc3e-f73b-3963-b546-98af8cf25b16}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Target\X86\MCTargetDesc\LLVMX86Desc.vcxproj">
+      <Project>{0238fe9f-3c78-3ec7-ad8a-4e16d58eb6ed}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Target\X86\TargetInfo\LLVMX86Info.vcxproj">
+      <Project>{a285015c-9138-3504-9b3c-e8455a63f69c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Target\X86\Utils\LLVMX86Utils.vcxproj">
+      <Project>{2926cd4c-3ab5-3e9e-877d-79b7103cee2f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\TextAPI\LLVMTextAPI.vcxproj">
+      <Project>{818b5e3b-ff38-342a-b561-a38bfdb1e48e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Transforms\AggressiveInstCombine\LLVMAggressiveInstCombine.vcxproj">
+      <Project>{bd74986e-ad0c-3380-b428-2ae86d452146}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Transforms\InstCombine\LLVMInstCombine.vcxproj">
+      <Project>{49879efa-7424-3c1a-863a-fb32432cc961}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Transforms\Instrumentation\LLVMInstrumentation.vcxproj">
+      <Project>{34b18864-8db3-3966-b240-f7a4deb10428}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Transforms\IPO\LLVMipo.vcxproj">
+      <Project>{05af3b16-ce97-3fae-a264-8bcc6e793328}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Transforms\Scalar\LLVMScalarOpts.vcxproj">
+      <Project>{df72ed1a-8936-3270-9182-8099a60524f5}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Transforms\Utils\LLVMTransformUtils.vcxproj">
+      <Project>{c2510f49-10b9-33e4-93fa-37a2bdec54cc}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\lib\Transforms\Vectorize\LLVMVectorize.vcxproj">
+      <Project>{bbdb55f4-4c72-3292-ae66-b9030d1f89d4}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\build\ZERO_CHECK.vcxproj">
+      <Project>{5f0e627c-2f57-3735-aa91-acfaa854da95}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

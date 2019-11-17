@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\test">
+      <UniqueIdentifier>{a56db086-ef7f-431b-9614-c96a2aaafb5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\general">
+      <UniqueIdentifier>{c170b645-c204-4fd0-9563-268575b0de0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\lexicalAnalysis">
+      <UniqueIdentifier>{fc267789-e676-4259-a19c-5294fb8428df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\lexicalAnalysis">
+      <UniqueIdentifier>{db23bcf9-e0cd-4977-a18e-a698d23e2009}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\test">
+      <UniqueIdentifier>{73be1d44-0e10-42db-820f-28e2f7144fc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\AST">
+      <UniqueIdentifier>{2ca0ed7e-fbf8-4b7f-9f59-b0199738180d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\AST">
+      <UniqueIdentifier>{aa901489-46f9-4210-be34-8937898cfcd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\general">
+      <UniqueIdentifier>{5c4ee499-e1db-4962-9ac6-a9e0b36856a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\paser">
+      <UniqueIdentifier>{bbb81a87-8046-4553-9864-566e30ba72b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\paser">
+      <UniqueIdentifier>{fa7b88d4-d0b7-464c-914d-6993134ca5c1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MyLexicalAnalysis.h">
+      <Filter>头文件\lexicalAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="Token.h">
+      <Filter>头文件\general</Filter>
+    </ClInclude>
+    <ClInclude Include="MyException.h">
+      <Filter>头文件\general</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>头文件\test</Filter>
+    </ClInclude>
+    <ClInclude Include="ASTGen.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneralFile.h">
+      <Filter>头文件\general</Filter>
+    </ClInclude>
+    <ClInclude Include="IntAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="RealAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="StringAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="CharAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="OperatorAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="IdentifierAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="BoolValAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="FnFormParamListAST.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FnRealParamListAST.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FnCallAST.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="ExprAST.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TupleAST.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MyParser.h">
+      <Filter>头文件\paser</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MyLexicalAnalysis.cpp">
+      <Filter>源文件\lexicalAnalysis</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>源文件\test</Filter>
+    </ClCompile>
+    <ClCompile Include="ASTGen.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="IntAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="RealAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="StringAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneralFile.cpp">
+      <Filter>源文件\general</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件\general</Filter>
+    </ClCompile>
+    <ClCompile Include="CharAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="OperatorAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="IdentifierAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="BoolValAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="FnFormParamListAST.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FnRealParamListAST.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FnCallAST.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstantAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="ExprAST.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TupleAST.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MyParser.cpp">
+      <Filter>源文件\paser</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="test1.txt">
+      <Filter>源文件\test</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
