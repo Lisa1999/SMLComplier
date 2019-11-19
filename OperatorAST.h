@@ -1,6 +1,6 @@
 #pragma once
 #include"ASTGen.h"
-enum Operator : public ASTGen {
+enum OPERATOR {
   Plus,   // +
   Minus,  // -
   Mul,    // *
@@ -17,10 +17,10 @@ enum Operator : public ASTGen {
   NotEq   // <>
 };
 
-class OperatorAST {
+class OperatorAST : public ASTGen {
 public:
-  Operator op;
+  OPERATOR op;
 
-  OperatorAST(Operator op);
+  OperatorAST(OPERATOR op);
   ~OperatorAST();
 };

@@ -1,0 +1,39 @@
+(* case 1 *)
+val symbol1 = 4 mod 2
+val symbol2 = 4 div 2
+val charA = #"a"
+val neg = ~2
+val word1 = 0w432
+val string1 = "hello world!"
+
+(* case 2 *)
+ val rec factorial =
+        fn n => case n of 0 => 1
+                        | n => n * factorial (n - 1)
+
+(* case 3 ??? *)
+fun factorialIT value =
+let
+  val flag = ref value and i = ref 1
+in
+  while !flag <> 0 do (
+  i := !i * !flag;
+  flag := !flag - 1
+  );
+  !i
+end;
+
+(*case 4*)
+fun factorial 0 = 1
+   | factorial n = n * factorial (n - 1)
+
+(* error case 1 *)
+fun factorial 0 = _a++a
+   | factorial ==00 = n * factorial (n - 1)
+
+(* error case 2 *)
+ val rec factorial =
+        fn n => case n of 0 => ~0.
+                        | n => n * factorial (n - ~43.~)
+
+$$$

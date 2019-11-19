@@ -1,6 +1,8 @@
 #pragma once
-class ExprAST {
+#include"ASTGen.h"
+class ExprAST : public ASTGen{
 public:
-  ExprAST();
+  Value *codegen();
+
   ~ExprAST();
 };

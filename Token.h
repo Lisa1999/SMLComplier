@@ -98,8 +98,8 @@ enum TOKEN {
   ConstInt,		//整数
   ConstString,	//字符串
   ConstReal,	//实数
-  ConstChar		//char #"a"
-  
+  ConstChar,	//char #"a"
+  ConstWord		//word类型
 };
 
 /*

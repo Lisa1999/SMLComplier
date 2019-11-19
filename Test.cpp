@@ -5,7 +5,7 @@
 void testLexerAnalysis() {
   MyLexicalAnalysis *lexer = nullptr;
   //try {
-    lexer = new MyLexicalAnalysis("test1.txt");
+    lexer = new MyLexicalAnalysis("sourceCode1.txt");
     lexer->print();
   //} catch (MyException e) {
   //  e.print();

@@ -63,53 +63,137 @@
     <ClInclude Include="GeneralFile.h">
       <Filter>头文件\general</Filter>
     </ClInclude>
-    <ClInclude Include="IntAST.h">
+    <ClInclude Include="MyParser.h">
+      <Filter>头文件\paser</Filter>
+    </ClInclude>
+    <ClInclude Include="IntExprAST.h">
       <Filter>头文件\AST</Filter>
     </ClInclude>
-    <ClInclude Include="RealAST.h">
+    <ClInclude Include="CharExprAST.h">
       <Filter>头文件\AST</Filter>
     </ClInclude>
-    <ClInclude Include="StringAST.h">
+    <ClInclude Include="StringExprAST.h">
       <Filter>头文件\AST</Filter>
     </ClInclude>
-    <ClInclude Include="CharAST.h">
+    <ClInclude Include="RealExprAST.h">
       <Filter>头文件\AST</Filter>
     </ClInclude>
-    <ClInclude Include="NumberAST.h">
-      <Filter>头文件\AST</Filter>
-    </ClInclude>
-    <ClInclude Include="OperatorAST.h">
-      <Filter>头文件\AST</Filter>
-    </ClInclude>
-    <ClInclude Include="IdentifierAST.h">
-      <Filter>头文件\AST</Filter>
-    </ClInclude>
-    <ClInclude Include="BoolValAST.h">
-      <Filter>头文件\AST</Filter>
-    </ClInclude>
-    <ClInclude Include="TypeAST.h">
-      <Filter>头文件\AST</Filter>
-    </ClInclude>
-    <ClInclude Include="FnFormParamListAST.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="FnRealParamListAST.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="FnCallAST.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ConstantAST.h">
+    <ClInclude Include="IdExprAST.h">
       <Filter>头文件\AST</Filter>
     </ClInclude>
     <ClInclude Include="ExprAST.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\AST</Filter>
     </ClInclude>
-    <ClInclude Include="TupleAST.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="Expr1AST.h">
+      <Filter>头文件\AST</Filter>
     </ClInclude>
-    <ClInclude Include="MyParser.h">
-      <Filter>头文件\paser</Filter>
+    <ClInclude Include="PattAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="WordExprAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="DecAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="Dec1AST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="Patt1AST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="Dec2AST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="ValbindAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="FunbindAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="FunmatchAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="IfExprAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="LetExprAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="ListExprAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceExprAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="LongIdExprAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="BinopLongIdExprAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="ExprExpr1AST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="IdExprExpr1.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="IntPattAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="RealPattAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="CharPattAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="StringPattAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="VariablePattAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="BinopIdPattAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="IdConstructionPattAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="IdPattAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="ListPattAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="TuplePattAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="MergePattAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="IdAsPattAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="IdPattPatt1AST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="ValueDeclAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="LocalDecAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="StmtAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="Stmt1AST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="StmtDecAST.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionDeclAST.h">
+      <Filter>头文件\AST</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -122,59 +206,146 @@
     <ClCompile Include="ASTGen.cpp">
       <Filter>源文件\AST</Filter>
     </ClCompile>
-    <ClCompile Include="IntAST.cpp">
-      <Filter>源文件\AST</Filter>
-    </ClCompile>
-    <ClCompile Include="RealAST.cpp">
-      <Filter>源文件\AST</Filter>
-    </ClCompile>
-    <ClCompile Include="StringAST.cpp">
-      <Filter>源文件\AST</Filter>
-    </ClCompile>
     <ClCompile Include="GeneralFile.cpp">
       <Filter>源文件\general</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件\general</Filter>
     </ClCompile>
-    <ClCompile Include="CharAST.cpp">
+    <ClCompile Include="MyParser.cpp">
+      <Filter>源文件\paser</Filter>
+    </ClCompile>
+    <ClCompile Include="NumAST.cpp">
       <Filter>源文件\AST</Filter>
     </ClCompile>
-    <ClCompile Include="NumberAST.cpp">
+    <ClCompile Include="IntExprAST.cpp">
       <Filter>源文件\AST</Filter>
     </ClCompile>
-    <ClCompile Include="OperatorAST.cpp">
+    <ClCompile Include="CharExprAST.cpp">
       <Filter>源文件\AST</Filter>
     </ClCompile>
-    <ClCompile Include="IdentifierAST.cpp">
+    <ClCompile Include="StringExprAST.cpp">
       <Filter>源文件\AST</Filter>
     </ClCompile>
-    <ClCompile Include="BoolValAST.cpp">
+    <ClCompile Include="RealExprAST.cpp">
       <Filter>源文件\AST</Filter>
     </ClCompile>
-    <ClCompile Include="TypeAST.cpp">
-      <Filter>源文件\AST</Filter>
-    </ClCompile>
-    <ClCompile Include="FnFormParamListAST.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="FnRealParamListAST.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="FnCallAST.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ConstantAST.cpp">
+    <ClCompile Include="IdExprAST.cpp">
       <Filter>源文件\AST</Filter>
     </ClCompile>
     <ClCompile Include="ExprAST.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\AST</Filter>
     </ClCompile>
-    <ClCompile Include="TupleAST.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="Expr1AST.cpp">
+      <Filter>源文件\AST</Filter>
     </ClCompile>
-    <ClCompile Include="MyParser.cpp">
-      <Filter>源文件\paser</Filter>
+    <ClCompile Include="PattAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="WordExprAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="Patt1AST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="Dec1AST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="Dec2AST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="DecAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="ValbindAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="FunbindAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="FunmatchAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="IfExprAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="LetExprAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="ListExprAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceExprAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="LongIdExprAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="BinopLongIdExprAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="ExprExpr1AST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="IdExprExpr1.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="IntPattAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="RealPattAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="StringPattAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="CharPattAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="VariablePattAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="BinopIdPattAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="IdConstructionPattAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="IdPattAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="ListPattAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="MergePattAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="TuplePattAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="IdAsPattAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="IdPattPatt1AST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionDeclAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="ValueDeclAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="StmtAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="LocalDecAST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="Stmt1AST.cpp">
+      <Filter>源文件\AST</Filter>
+    </ClCompile>
+    <ClCompile Include="StmtDecAST.cpp">
+      <Filter>源文件\AST</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

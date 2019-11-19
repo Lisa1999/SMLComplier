@@ -1,5 +1,7 @@
 #include "ExprAST.h"
 
-ExprAST::ExprAST() {}
+//ExprAST::ExprAST() {}
+
+Value *ExprAST::codegen() { return nullptr; }
 
 ExprAST::~ExprAST() {}
