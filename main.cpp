@@ -3,6 +3,7 @@
 
 
 int main() {
-  testLexerAnalysis();
+  //testLexerAnalysis();
+  testParser();
   return 0;
 }

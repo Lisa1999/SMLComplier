@@ -124,6 +124,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ASTAll.h" />
     <ClInclude Include="ASTGen.h" />
     <ClInclude Include="BinopIdPattAST.h" />
     <ClInclude Include="BinopLongIdExprAST.h" />
@@ -211,7 +212,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyLexicalAnalysis.cpp" />
     <ClCompile Include="MyParser.cpp" />
-    <ClCompile Include="NumAST.cpp" />
     <ClCompile Include="Patt1AST.cpp" />
     <ClCompile Include="PattAST.cpp" />
     <ClCompile Include="RealExprAST.cpp" />

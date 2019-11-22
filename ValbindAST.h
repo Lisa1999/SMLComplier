@@ -8,9 +8,10 @@ public:
   ExprAST *_expr;
   PattAST *_patt;
 
-  ValbindAST(ExprAST *_expr, PattAST *_patt) {
-    this->_expr = _expr;
-    this->_patt = _patt;
+  ValbindAST(PattAST *_patt, ExprAST *_expr) {
+        this->_patt = _patt;
+		this->_expr = _expr;
+
   };
 
   Value *codegen();

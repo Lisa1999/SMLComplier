@@ -3,7 +3,7 @@
 
 // pat ::= (pat , pat , ... , pat) patt -- delete
 // pat ::= (pat , pat , ... , pat)
-class TuplePattAST {
+class TuplePattAST : public PattAST {
   vector<PattAST *> _pattVec;
 
 public:

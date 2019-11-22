@@ -195,6 +195,9 @@
     <ClInclude Include="FunctionDeclAST.h">
       <Filter>头文件\AST</Filter>
     </ClInclude>
+    <ClInclude Include="ASTAll.h">
+      <Filter>头文件\AST</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyLexicalAnalysis.cpp">
@@ -214,9 +217,6 @@
     </ClCompile>
     <ClCompile Include="MyParser.cpp">
       <Filter>源文件\paser</Filter>
-    </ClCompile>
-    <ClCompile Include="NumAST.cpp">
-      <Filter>源文件\AST</Filter>
     </ClCompile>
     <ClCompile Include="IntExprAST.cpp">
       <Filter>源文件\AST</Filter>

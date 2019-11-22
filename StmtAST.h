@@ -1,7 +1,8 @@
 #pragma once
-#include"ASTGen.h"
+//#include"ASTGen.h"
+#include"GeneralFile.h"
 
-class StmtAST :public ASTGen{
+class StmtAST {
 public:
   //StmtAST();
   Value *codegen();

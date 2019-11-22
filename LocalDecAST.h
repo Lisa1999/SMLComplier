@@ -3,7 +3,7 @@
 #include"Dec1AST.h"
 
 // dec ::= local dec in dec end
-class LocalDecAST {
+class LocalDecAST : public DecAST {
   DecAST *_local;
   DecAST *_in;
   Dec1AST *_dec1;

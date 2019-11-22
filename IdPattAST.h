@@ -2,7 +2,7 @@
 #include"PattAST.h"
 
 // pat ::= id
-class IdPattAST {
+class IdPattAST : public PattAST{
   string _idName;
 
 public:
