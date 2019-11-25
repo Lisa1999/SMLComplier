@@ -271,21 +271,36 @@ _	:	!	$	;	{	}	[	]
     case '(': // LP LPMul
       if (i + 1 < mySourceCode->length &&
           this->mySourceCode->buffer[i + 1] == '*') {
-        word = new WORD();
+        j = 2;
+        while (i + j + 1 < this->mySourceCode->length &&
+               !(this->mySourceCode->buffer[i + j] == '*' &&
+                this->mySourceCode->buffer[i + j + 1] == ')')) {
+          //s += this->mySourceCode->buffer[i + j];
+          j++;
+        }
+        if (i + j + 1 == this->mySourceCode->length) {
+          MyException(LexerEx, row, "Error");
+          i++;
+        } else {
+          i += j + 2;
+        }
+        break;
+        /*word = new WORD();
         word->row = row;
         word->token = LPMul;
         word->value = "(*";
-        i += 2;
+        i += 2;*/
       } else {
         word = new WORD();
         word->row = row;
         word->token = LP;
         word->value = "(";
         i++;
+		this->wordVecPointer->push_back(word);
+        word = nullptr;
+        break;
       }
-      this->wordVecPointer->push_back(word);
-      word = nullptr;
-      break;
+      
     case ')': // RP
       word = new WORD();
       word->row = row;
@@ -863,3 +878,4 @@ void MyLexicalAnalysis::print() {
 }
 
 vector<WORD *> *MyLexicalAnalysis::getTokens() { return this->wordVecPointer; }
+

@@ -1,4 +1,5 @@
 #include "MyParser.h"
+#include<fstream>
 
 //单词的vector
 vector<WORD *> *tokensVec = nullptr;
@@ -15,16 +16,15 @@ int blk = 0;
 StmtAST *Root = nullptr;
 
 WORD *getNextToken() {
-  if (curTokPoint < tokenCount - 1) { 
-	  curToken = (*tokensVec)[++curTokPoint];
-      return curToken;
-  }
-  else
+  if (curTokPoint < tokenCount - 1) {
+    curToken = (*tokensVec)[++curTokPoint];
+    return curToken;
+  } else
     return nullptr;
 }
 
 void MyParser::MainLoop(void) {
-  while(curTokPoint < tokenCount - 1) {
+  while (curTokPoint < tokenCount - 1) {
     // curToken = (*tokensVec)[curTokPoint];
     curToken = getNextToken();
     switch (curToken->token) {
@@ -36,9 +36,9 @@ void MyParser::MainLoop(void) {
     case Val:
       ParseDeclaration();
       break;
-    case LPMul:
-      skipComment();
-      break;
+    //case LPMul:
+      ///skipComment();
+      //break;
     default:
       ParseExpression();
       break;
@@ -46,11 +46,26 @@ void MyParser::MainLoop(void) {
   }
 }
 
-void MyParser::blanks() {
-  for (int i = 0; i < blk; i++)
-    printf("│ ");
-  printf("├ ");
+void printAST(string content) {
+  cout << content;
+  /*ofstream out;
+  if (out.bad()) {
+    cout << "cannot write file" << std::endl;
+  }
+  out.open("parserResult.txt", ios::out | ios::app);
+
+  out << content << "\n";
+
+  out.close();*/
 }
+
+void blanks() {
+  for (int i = 0; i < blk; i++)
+    printAST("│ ");
+  printAST("├ ");
+}
+
+
 
 //获取符号的优先级
 static int GetTokPrecedence() {
@@ -76,15 +91,14 @@ MyParser::MyParser(const char *fileName) {
 
 MyParser::~MyParser() {}
 
-static void skipComment() 
-{
-  while (curToken != nullptr) {
-    if (curToken->token == MulRP)
-      return;
-    curToken = getNextToken();
-  }
-  MyException(ParserEx, curToken->row, "缺少*)");
-}
+//static void skipComment() {
+//  while (curToken != nullptr) {
+//    if (curToken->token == MulRP)
+//      return;
+//    curToken = getNextToken();
+//  }
+//  MyException(ParserEx, -1, "缺少*)");
+//}
 
 static PattAST *ParsePattern(void) {
   blk++;
@@ -94,10 +108,8 @@ static PattAST *ParsePattern(void) {
   case LP: {
     getNextToken(); // eat '('
     std::vector<PattAST *> Pats;
-#ifdef PRINT
     blanks();
-    printf("Tuple<Pattern>\n");
-#endif // PRINT
+    printAST("Tuple<Pattern>\n");
     if (curToken->token != RP) {
       while (1) {
         PattAST *Pat = ParsePattern();
@@ -121,10 +133,10 @@ static PattAST *ParsePattern(void) {
   case LS: {
     getNextToken(); // eat '['
     std::vector<PattAST *> Pats;
-#ifdef PRINT
+////#ifdef PRINT
     blanks();
-    printf("List<Pattern>\n");
-#endif // PRINT
+    printAST("List<Pattern>\n");
+////#endif // PRINT
     if (curToken->token != RS) {
       while (1) {
         PattAST *Pat = ParsePattern();
@@ -153,28 +165,29 @@ static PattAST *ParsePattern(void) {
     }
     string IdName = curToken->value;
     getNextToken(); // eat 'id'
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Binop '::'<Pattern>\n");
+    printAST("Binop '::'<Pattern>\n");
     blanks();
-    printf("Id:%s<Pattern>\n", IdName.c_str());
-#endif // PRINT
+    //printAST("Id:%s<Pattern>\n", IdName.c_str());
+    printAST("Id:"+ IdName + "<Pattern>\n");
+    //#endif // PRINT
     return new MergePattAST(DoubleColon, IdName);
   }
   case IdAlpha:
   case IdSymbol: {
     string IdName = curToken->value;
     getNextToken(); // eat 'id'
-#ifdef PRINT
+////#ifdef PRINT
     blanks();
-    printf("Id:%s<Pattern>\n", IdName.c_str());
-#endif // PRINT
+    printAST("Id:" + IdName + "<Pattern>\n");
+    //#endif // PRINT
 
     if (curToken->token == DoubleColon) {
-#ifdef PRINT
+//#ifdef PRINT
       blanks();
-      printf("Binop '::'<Pattern>\n");
-#endif                // PRINT
+      printAST("Binop '::'<Pattern>\n");
+//#endif                // PRINT
       getNextToken(); // eat '::'
       PattAST *RHS = ParsePattern();
       blk--;
@@ -201,24 +214,24 @@ static DecAST *ParseDeclaration(void) {
   default:
     return 0;
   case Fun: {
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Keyword:fun<Declaration>\n");
-#endif              // PRINT
+    printAST("Keyword:fun<Declaration>\n");
+//#endif              // PRINT
     getNextToken(); // eat 'fun'
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Funbind<Declaration>\n");
-#endif // PRINT
+    printAST("Funbind<Declaration>\n");
+//#endif // PRINT
     FunbindAST *Funbind = ParseFunbind();
     blk--;
     if (!Funbind)
       return 0;
 
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Decl<Declaration>\n");
-#endif // PRINT
+    printAST("Decl<Declaration>\n");
+//#endif // PRINT
     Dec1AST *Decl = ParseDecl();
     blk--;
     if (!Decl)
@@ -227,24 +240,24 @@ static DecAST *ParseDeclaration(void) {
     return new FunctionDeclAST(Funbind, Decl);
   }
   case Val: {
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Keyword:val<Declaration>\n");
-#endif              // PRINT
+    printAST("Keyword:val<Declaration>\n");
+//#endif              // PRINT
     getNextToken(); // eat 'val'
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Valbind<Declaration>\n");
-#endif // PRINT
+    printAST("Valbind<Declaration>\n");
+//#endif // PRINT
     ValbindAST *Valbind = ParseValbind();
     blk--;
     if (!Valbind)
       return 0;
 
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Decl<Declaration>\n");
-#endif // PRINT
+    printAST("Decl<Declaration>\n");
+//#endif // PRINT
     Dec1AST *Decl = ParseDecl();
     blk--;
     if (!Decl)
@@ -253,12 +266,12 @@ static DecAST *ParseDeclaration(void) {
     return new ValueDeclAST(Valbind, Decl);
   }
   case Local: {
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Keyword:local<Declaration>\n");
+    printAST("Keyword:local<Declaration>\n");
     blanks();
-    printf("Dec<Declaration>\n");
-#endif              // PRINT
+    printAST("Dec<Declaration>\n");
+//#endif              // PRINT
     getNextToken(); // eat 'local'
     DecAST *Dec1 = ParseDeclaration();
     blk--;
@@ -268,12 +281,12 @@ static DecAST *ParseDeclaration(void) {
       MyException(ParserEx, curToken->row, "Local语句缺少in");
       return nullptr;
     }
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Keyword:in<Declaration>\n");
+    printAST("Keyword:in<Declaration>\n");
     blanks();
-    printf("Dec<Declaration>\n");
-#endif              // PRINT
+    printAST("Dec<Declaration>\n");
+//#endif              // PRINT
     getNextToken(); // eat 'in'
     DecAST *Dec2 = ParseDeclaration();
     blk--;
@@ -283,12 +296,12 @@ static DecAST *ParseDeclaration(void) {
       MyException(ParserEx, curToken->row, "Local语句缺少end");
       return nullptr;
     }
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Keyword:end<Declaration>\n");
+    printAST("Keyword:end<Declaration>\n");
     blanks();
-    printf("Decl<Declaration>\n");
-#endif              // PRINT
+    printAST("Decl<Declaration>\n");
+//#endif              // PRINT
     getNextToken(); // eat 'end'
 
     Dec1AST *Decl = ParseDecl();
@@ -304,10 +317,10 @@ static DecAST *ParseDeclaration(void) {
 static FunbindAST *ParseFunbind(void) {
   blk++;
   std::vector<FunmatchAST *> Funmatchs;
-#ifdef PRINT
+//#ifdef PRINT
   blanks();
-  printf("Funmatch<Funbind>\n");
-#endif // PRINT
+  printAST("Funmatch<Funbind>\n");
+//#endif // PRINT
   FunmatchAST *Funmatch = ParseFunmatch();
   blk--;
   if (!Funmatch)
@@ -334,15 +347,16 @@ static FunmatchAST *ParseFunmatch(void) {
   blk++;
   std::string IdName = curToken->value;
   getNextToken(); // eat 'id'
-#ifdef PRINT
+//#ifdef PRINT
   blanks();
-  printf("Id:%s<Funmatch>\n", IdName.c_str());
-#endif // PRINT
+  //printAST("Id:%s<Funmatch>\n", IdName.c_str());
+  printAST("Id:" + IdName + "<Funmatch>\n");
+  //#endif // PRINT
   std::vector<PattAST *> Pats;
-#ifdef PRINT
+//#ifdef PRINT
   blanks();
-  printf("Pat<Funmatch>\n");
-#endif // PRINT
+  printAST("Pat<Funmatch>\n");
+//#endif // PRINT
   if (curToken->token == Equal) {
     MyException(ParserEx, curToken->row, "参数list中缺少模式");
     return nullptr;
@@ -357,10 +371,10 @@ static FunmatchAST *ParseFunmatch(void) {
       break;
   }
   getNextToken(); // eat
-#ifdef PRINT
+//#ifdef PRINT
   blanks();
-  printf("Exp<Funmatch>\n");
-#endif // PRINT
+  printAST("Exp<Funmatch>\n");
+//#endif // PRINT
   ExprAST *Exp = ParseExpression();
   blk--;
   if (!Exp)
@@ -379,10 +393,10 @@ static ValbindAST *ParseValbind(void) {
   case DoubleColon:
   case IdAlpha:
   case IdSymbol: {
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Pat<Valbind>\n");
-#endif // PRINT
+    printAST("Pat<Valbind>\n");
+//#endif // PRINT
     PattAST *Pat = ParsePattern();
     blk--;
     if (!Pat)
@@ -393,10 +407,10 @@ static ValbindAST *ParseValbind(void) {
     }
     // return ErrorV("Expected '=' in Valbind");
     getNextToken(); // eat '='
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Exp<Valbind>\n");
-#endif // PRINT
+    printAST("Exp<Valbind>\n");
+//#endif // PRINT
     ExprAST *Exp = ParseExpression();
     blk--;
     if (!Exp)
@@ -413,12 +427,12 @@ static ExprAST *ParseExpression(void) {
   default:
     return 0;
   case Let: {
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Keyword:let<Let-In>\n");
+    printAST("Keyword:let<Let-In>\n");
     blanks();
-    printf("Dec<Let-In>\n");
-#endif              // PRINT
+    printAST("Dec<Let-In>\n");
+//#endif              // PRINT
     getNextToken(); // eat 'let'
     DecAST *Decl = ParseDeclaration();
     blk--;
@@ -428,12 +442,12 @@ static ExprAST *ParseExpression(void) {
       MyException(ParserEx, curToken->row, "缺少 in");
       return nullptr;
     }
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Keyword:in<Let-In>\n");
+    printAST("Keyword:in<Let-In>\n");
     blanks();
-    printf("Exp<Let-In>\n");
-#endif              // PRINT
+    printAST("Exp<Let-In>\n");
+//#endif              // PRINT
     getNextToken(); // eat 'in'
     std::vector<ExprAST *> Exps;
 
@@ -453,12 +467,12 @@ static ExprAST *ParseExpression(void) {
         getNextToken();
       }
     }
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Keyword:end<Let-In>\n");
+    printAST("Keyword:end<Let-In>\n");
     blanks();
-    printf("Expr<Let-In>\n");
-#endif              // PRINT
+    printAST("Expr<Let-In>\n");
+//#endif              // PRINT
     getNextToken(); // eat 'end'
     Expr1AST *Expr = ParseExpr();
     blk--;
@@ -467,12 +481,12 @@ static ExprAST *ParseExpression(void) {
     return new LetExprAST(Decl, Exps, Expr);
   }
   case If: {
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Id:if<Keyword>\n");
+    printAST("Id:if<Keyword>\n");
     blanks();
-    printf("Exp<If-Else>\n");
-#endif              // PRINT
+    printAST("Exp<If-Else>\n");
+//#endif              // PRINT
     getNextToken(); // eat 'if'
     ExprAST *Exp1 = ParseExpression();
     blk--;
@@ -482,12 +496,12 @@ static ExprAST *ParseExpression(void) {
       MyException(ParserEx, curToken->row, "if else 语句缺少 then");
       return nullptr;
     }
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Keyword:then<If-Else>\n");
+    printAST("Keyword:then<If-Else>\n");
     blanks();
-    printf("Exp<If-Else>\n");
-#endif              // PRINT
+    printAST("Exp<If-Else>\n");
+//#endif              // PRINT
     getNextToken(); // eat 'then'
     ExprAST *Exp2 = ParseExpression();
     blk--;
@@ -498,21 +512,21 @@ static ExprAST *ParseExpression(void) {
       MyException(ParserEx, curToken->row, "if else 语句缺少 else");
       return nullptr;
     }
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Keyword:else<If-Else>\n");
+    printAST("Keyword:else<If-Else>\n");
     blanks();
-    printf("Exp<If-Else>\n");
-#endif              // PRINT
+    printAST("Exp<If-Else>\n");
+//#endif              // PRINT
     getNextToken(); // eat 'else'
     ExprAST *Exp3 = ParseExpression();
     blk--;
     if (!Exp3)
       return 0;
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Expr<If-Else>\n");
-#endif // PRINT
+    printAST("Expr<If-Else>\n");
+//#endif // PRINT
     Expr1AST *Expr = ParseExpr();
     blk--;
     if (!Expr)
@@ -522,10 +536,10 @@ static ExprAST *ParseExpression(void) {
   case '(': {
     getNextToken(); // eat '('
     std::vector<ExprAST *> Exps;
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Tuple<Expression>\n");
-#endif // PRINT
+    printAST("Tuple<Expression>\n");
+//#endif // PRINT
     if (curToken->token != ')') {
       while (1) {
         ExprAST *Exp = ParseExpression();
@@ -542,10 +556,10 @@ static ExprAST *ParseExpression(void) {
         getNextToken(); //
       }
     }
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Expr<Expression>\n");
-#endif              // PRINT
+    printAST("Expr<Expression>\n");
+//#endif              // PRINT
     getNextToken(); // eat ')'
     Expr1AST *Expr = ParseExpr();
     blk--;
@@ -556,10 +570,10 @@ static ExprAST *ParseExpression(void) {
   case '[': {
     getNextToken(); // eat '['
     std::vector<ExprAST *> Exps;
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("List<Pattern>\n");
-#endif // PRINT
+    printAST("List<Pattern>\n");
+//#endif // PRINT
     if (curToken->token != ']') {
       while (1) {
         ExprAST *Exp = ParseExpression();
@@ -576,10 +590,10 @@ static ExprAST *ParseExpression(void) {
         getNextToken(); //
       }
     }
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Expr<Expression>\n");
-#endif              // PRINT
+    printAST("Expr<Expression>\n");
+//#endif              // PRINT
     getNextToken(); // eat ']'
     Expr1AST *Expr = ParseExpr();
     blk--;
@@ -589,22 +603,23 @@ static ExprAST *ParseExpression(void) {
   }
   case DoubleColon: {
     getNextToken(); // eat '::'
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Binop '::'<Expression>\n");
-#endif // PRINT
+    printAST("Binop '::'<Expression>\n");
+//#endif // PRINT
     if (!(curToken->token == IdAlpha || curToken->token == IdSymbol)) {
       MyException(ParserEx, curToken->row, "list 语句缺少 , ");
       return nullptr;
     }
     /// return ErrorE("Expected RHS in Binop Expression");
     string IdName = curToken->value;
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Id:%s<Expression>\n", IdName.c_str());
+    //printAST("Id:%s<Expression>\n", IdName.c_str());
+    printAST("Id:" + IdName + "<Expression>\n");
     blanks();
-    printf("Expr<Expression>\n");
-#endif              // PRINT
+    printAST("Expr<Expression>\n");
+//#endif              // PRINT
     getNextToken(); // eat 'id'
     Expr1AST *Expr = ParseExpr();
     blk--;
@@ -616,12 +631,12 @@ static ExprAST *ParseExpression(void) {
   case IdSymbol: // id or id pat (if the next token is '::')
   {
     std::string IdName = curToken->value;
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Id:%s<Expression>\n", IdName.c_str());
+    printAST("Id:" + IdName + "<Expression>\n");
     blanks();
-    printf("Expr<Expression>\n");
-#endif              // PRINT
+    printAST("Expr<Expression>\n");
+//#endif              // PRINT
     getNextToken(); // eat 'id'
     Expr1AST *Expr = ParseExpr();
     blk--;
@@ -637,11 +652,11 @@ static Expr1AST *ParseExpr(void) {
   blk++;
   switch (curToken->token) {
   default:
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("ε<Expression+>\n");
+    printAST("ε<Expression+>\n");
     break;
-#endif // PRINT
+//#endif // PRINT
        // return 0;
   case Let:
   case If:
@@ -650,18 +665,18 @@ static Expr1AST *ParseExpr(void) {
   case DoubleColon:
   case IdAlpha:
   case IdSymbol: {
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Exp<Expression+>\n");
-#endif // PRINT
+    printAST("Exp<Expression+>\n");
+//#endif // PRINT
     ExprAST *Exp = ParseExpression();
     blk--;
     if (!Exp)
       return 0;
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Expr<Expression+>\n");
-#endif // PRINT
+    printAST("Expr<Expression+>\n");
+//#endif // PRINT
     Expr1AST *Expr = ParseExpr();
     blk--;
     if (!Expr) {
@@ -679,10 +694,10 @@ static Expr1AST *ParseExpr(void) {
   case '|':
   case In:
   case '=': {
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("ε<Expression+>\n");
-#endif // PRINT
+    printAST("ε<Expression+>\n");
+//#endif // PRINT
   }
   }
 }
@@ -692,27 +707,27 @@ static Dec1AST *ParseDecl(void) {
   blk++;
   switch (curToken->token) {
   default:
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("ε<Declaration+>\n");
-#endif // PRINT
+    printAST("ε<Declaration+>\n");
+//#endif // PRINT
     break;
   case Fun:
   case Val:
   case Local: {
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Dec<Declaration+>\n");
-#endif // PRINT
+    printAST("Dec<Declaration+>\n");
+//#endif // PRINT
     DecAST *Dec = ParseDeclaration();
     blk--;
     if (!Dec) {
       return 0;
     }
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("Decl<Declaration+>\n");
-#endif // PRINT
+    printAST("Decl<Declaration+>\n");
+//#endif // PRINT
     Dec1AST *Decl = ParseDecl();
     blk--;
     if (!Decl) {
@@ -724,10 +739,11 @@ static Dec1AST *ParseDecl(void) {
   case In:
   case End: {
     // case tok_eof:
-#ifdef PRINT
+//#ifdef PRINT
     blanks();
-    printf("ε<Declaration+>\n");
-#endif // PRINT
+    printAST("ε<Declaration+>\n");
+//#endif // PRINT
   }
   }
 }
+

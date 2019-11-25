@@ -3,7 +3,6 @@
 #include"MyException.h"
 #include"ASTAll.h"
 
-
 //词法分析得到的单词的vector
 extern vector<WORD *> *tokensVec;
 //当前分析的单词
@@ -26,13 +25,14 @@ static Dec1AST *ParseDecl(void);
 static ValbindAST *ParseValbind(void);
 static FunmatchAST *ParseFunmatch(void);
 static FunbindAST *ParseFunbind(void);
-static void skipComment(void);
+//static void skipComment(void);
 
 class MyParser {
 public:
   void MainLoop(void);
-  void blanks();
-	
+  //void blanks();
+  //void printAST(string content);
+
 	MyParser(const char *fileName);
 	~MyParser();
 };

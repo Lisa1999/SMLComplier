@@ -6,7 +6,7 @@
 void testLexerAnalysis() {
   MyLexicalAnalysis *lexer = nullptr;
   //try {
-    lexer = new MyLexicalAnalysis("sourceCode1.txt");
+    lexer = new MyLexicalAnalysis("sourceCode.txt");
     lexer->print();
   //} catch (MyException e) {
   //  e.print();
@@ -28,5 +28,5 @@ void testParser() {
   BinopPrecedence[Mul] = 40;
 
   MyParser *parser = nullptr;
-  parser = new MyParser("sourceCode1.txt");
+  parser = new MyParser("sourceCode.txt");
 }
